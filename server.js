@@ -2,8 +2,10 @@ const express = require('express');
 const app = express();
 const port = 8080;
 
+app.use(express.static('public'));
+
 app.get('/', (request, response) => {
-  response.send('Hello World!');
+  response.sendFile( __dirname + '/' + 'index.html' );
 });
 
 app.listen(port, (err) => {
